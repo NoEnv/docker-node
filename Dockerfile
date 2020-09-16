@@ -1,1 +1,1 @@
-FROM node:14.10.1-alpine
+FROM node:14.11.0-alpine
