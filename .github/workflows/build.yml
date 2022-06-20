@@ -68,7 +68,7 @@ jobs:
 
       - name: Upgrade buildah
         run: |
-          curl -s -o /tmp/buildah.zip https://github.com/zyclonite/buildah-gh-action/releases/download/0.0.1/buildah-1.26.1.zip
+          curl -s -L -o /tmp/buildah.zip https://github.com/zyclonite/buildah-gh-action/releases/download/0.0.1/buildah-1.26.1.zip
           unzip /tmp/buildah.zip -d /tmp
           cd /tmp && ./install.sh
 
