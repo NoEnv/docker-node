@@ -61,11 +61,6 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v2
 
-      - name: Import images
-        run: |
-          podman load -i ./image-amd64/image.tar
-          podman load -i ./image-arm64v8/image.tar
-
       - name: Upgrade buildah
         run: |
           curl -s -L -o /tmp/buildah.zip https://github.com/zyclonite/buildah-gh-action/releases/download/0.0.1/buildah-1.26.1.zip
@@ -74,6 +69,11 @@ jobs:
 
       - name: Check buildah version
         run: buildah version
+
+      - name: Import images
+        run: |
+          podman load -i ./image-amd64/image.tar
+          podman load -i ./image-arm64v8/image.tar
 
       - name: Create multi-arch manifest
         run: |
