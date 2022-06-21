@@ -61,16 +61,8 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v2
 
-      - name: Upgrade buildah
-        run: |
-          curl -s -L -o /tmp/buildah.zip https://github.com/zyclonite/buildah-gh-action/releases/download/0.0.1/buildah-1.26.1.zip
-          unzip /tmp/buildah.zip -d /tmp
-          cd /tmp && ./install.sh
-
-      - name: Check buildah version
-        run: buildah version
-
       - name: Import images
+        uses: zyclonite/setup-podman@v1
         run: |
           podman load -i ./image-amd64/image.tar
           podman load -i ./image-arm64v8/image.tar
