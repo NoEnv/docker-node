@@ -1,4 +1,4 @@
-FROM node:25.2.0-alpine
+FROM node:25.2.1-alpine
 
 RUN mkdir -p /drone/volume \
     && touch /drone/volume/npmrc \
